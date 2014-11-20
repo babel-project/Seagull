@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>投稿君</title>
+	<meta name="viewport" content="width=device-width, initial-scale=0.6">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<!-- Le styles -->
+	<link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="lib/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+	<!-- script -->
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+	<script type="text/javascript" src="lib/highcharts/js/highcharts.js"></script>
+	<script type="text/javascript" src="lib/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="lib/chart.js"></script>
+	<script type="text/javascript" src="lib/screen.js"></script>
+	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+		<script src="lib/bootstrap/js/html5shiv.js"></script>
+	<![endif]-->
+	</head>
+	<body>
+		<!-- navigation var -->
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container-fluid">
+					<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="brand" href="#">質問を投稿して、皆で共有しよう！</a>
+					<div id="login"class="nav-collapse collapse">
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+		<div>
+		<!-- contents -->
+		<div class="container-fluid">
+			<div class="row-fluid">
+				<!-- left -->
+				<div class="span3">
+					<div class="well sidebar-nav">
+						<ul class="nav nav-list">
+							<li class="nav-header">質問する</li>
+							<li>
+								<div class="input">
+									<textarea class="xxlarge" id="input_header" rows="3"></textarea>
+								</div>
+							</li>
+							<li><button id="create_question_button" type="submit" class="btn" onclick='createQuestion()'>投稿する</button></li>
+						</ul>
+					</div>
+					<!-- menu -->
+					<div class="well sidebar-nav">
+						<ul id="nav_list" class="nav nav-list">
+							<li class="nav-header">Menu</li>
+						</ul>
+					</div>
+				</div>
+				<!-- right -->
+				<div id="contents_area" class="span7">
+			</div>
+		</div>
+	<!-- alert area -->
+	<a href="#modal" class="btn" data-toggle="modal" style="display : none;">modal</a>
+	<div id="modal" class="modal hide fade">
+		<div class="modal-header" style="height : 20px;">
+			<a href="#" class="close" data-dismiss="modal">&times;</a>
+			<h4>投票失敗！</h4>
+		</div>
+		<div class="modal-body">
+			質問に対しては、一回しか投票することができません
+		</div>
+	</div>
+	<!-- Login Form -->
+	<a href="#login_form" class="btn" data-toggle="modal" style="display : none;">modal</a>
+	<div id="login_form" class="modal hide fade">
+		<div class="modal-header" style="height : 20px;">
+			<a href="#" class="close" data-dismiss="modal">&times;</a>
+			<h4>ユーザーIDとパスワードを入力して下さい。</h4>
+		</div>
+		<div class="modal-body">
+			<input id="login_user_id" type="text" width="20"/>
+			<input id="login_password" type="text" width="20"/>
+			<input id="login_form_button" type="button" class="btn btn-primary" onclick="login()" value="ログインする">
+			<input id="account_form_button" type="button" class="btn btn-primary" onclick="account()" value="アカウントを作る">
+		</div>
+		<div id="login_message" class="modal-body">
+		</div>
+	</div>
+	<!-- Logged In Form -->
+	<a href="#logged_in_form" class="btn" data-toggle="modal" style="display : none;">modal</a>
+	<div id="logged_in_form" class="modal hide fade">
+		<div class="modal-header" style="height : 20px;">
+			<a href="#" class="close" data-dismiss="modal">&times;</a>
+			<h4>ログインメニュー</h4>
+		</div>
+		<div id="user_questions" class="modal-body">
+		</div>
+		<div class="modal-body">
+			<input id="logged_in_form_button" type="button" class="btn btn-primary" onclick="logout()" value="ログアウトする">
+		</div>
+	</div>
+	<!-- Le javascript
+	================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<!-- footer -->
+	<hr>
+	<footer>
+		<p>&copy; hiro_sa 2013</p>
+	</footer>
+	</body>
+</html>
